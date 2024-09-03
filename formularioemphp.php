@@ -75,7 +75,8 @@
                         echo "Comentário: " . $comentario . "<br>";
                         echo "FDS: " . $fds . "<br>";
                         echo "LGR: " . $lgr . "<br>";
-                        echo "Notícias: " . $noticias . "<br>";
+                        echo "sim: " . $sim . "<br>";
+                        echo "nao: " . $nao . "<br>";
                     }
                 }
             ?>
