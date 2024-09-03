@@ -5,17 +5,15 @@
     </header>
     <body>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-            <label for="name">Nome:</label>
-            <input id="name" ytpe="text" required>
+            
+            Nome:<input name="fname" type="text" required>
             <br><br>
-            <label for="email">E-mail:</label>
-            <input id="email" type="email" required>
+            E-mail:<input name="email" type="email" required>
             <br><br>
-            <label for="senha">Senha:</label>
-            <input id="senha" type="password" required>
+            Senha:<input name="senha" type="password" required>
             <br><br>
-            <label for="estado">Estado:</label>
-                <select id="estado" name="estado" size="3">
+            Estado:
+                <select name="estado">
                     <option value="Acre">AC</option>
                     <option value="Alagoas">AL</option>
                     <option value="Amapa">AP</option>
@@ -42,27 +40,29 @@
             <TEXTAREA name="COMENTARIO" cols="30" rows="10" wrap="physical"></TEXTAREA><br>
             <br>
             Marque o(s) laboratório(s) que você deseja receber informacões:<br><br> 
-            <INPUT type="checkbox" name="fds" value="FDS">Laboratório de Ferramentas para Desenvolvimento de Sistemas - LAFES<br>
-            <INPUT type="checkbox" name="lgr" value="LGR">Laboratório de Gestão de Redes - LGR<br>
-            <INPUT type="checkbox" name="fds" value="FDS">Laboratório de Integracao de Sistemas - LIS<br>
-            <INPUT type="checkbox" name="lgr" value="LGR">Laboratório de Qualidade de Software - LQS<br>
+            <INPUT type="checkbox" name="LAFES" value="LAFES">Laboratório de Ferramentas para Desenvolvimento de Sistemas - LAFES<br>
+            <INPUT type="checkbox" name="LGR" value="LGR">Laboratório de Gestão de Redes - LGR<br>
+            <INPUT type="checkbox" name="LIS" value="LIS">Laboratório de Integracao de Sistemas - LIS<br>
+            <INPUT type="checkbox" name="LQS" value="LQS">Laboratório de Qualidade de Software - LQS<br>
             <br>
             Você aceita receber outras informacões sobre cursos de extensão de Unisinos?<br>
             <INPUT type="radio" name="sim" value="sim"> Sim<br>
             <INPUT type="radio" name="nao" value="nao"> Não<br>
             <br>
             <INPUT TYPE="submit" value="Enviar os dados acima">      
-            <INPUT TYPE="reset" value="Limpar"><br>
+            <INPUT TYPE="reset" value="Limpar"><br><br>
 
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Coletar valores dos campos de entrada
                     $name = $_POST['fname'];
                     $senha = $_POST['senha'];
-                    $select = $_POST['select'];
-                    $comentario = $_POST['COMENTARIO'];
-                    $fds = isset($_POST['fds']) ? $_POST['fds'] : 'Não selecionado';
-                    $lgr = isset($_POST['lgr']) ? $_POST['lgr'] : 'Não selecionado';
+                    $estado = $_POST['estado'];
+                    $COMENTARIO = $_POST['COMENTARIO'];
+                    $LAFES = isset($_POST['LAFES']) ? $_POST['LAFES'] : 'Não selecionado';
+                    $LGR = isset($_POST['LGR']) ? $_POST['LGR'] : 'Não selecionado';
+                    $LIS = isset($_POST['LIS']) ? $_POST['LIS'] : 'Não selecionado';
+                    $LQS = isset($_POST['LQS']) ? $_POST['LQS'] : 'Não selecionado';
                     $sim = isset($_POST['sim']) ? $_POST['sim'] : 'Não selecionado';
                     $nao = isset($_POST['nao']) ? $_POST['nao'] : 'Não selecionado';
                 
@@ -71,10 +71,13 @@
                     } else {
                         echo "Nome: " . $name . "<br>";
                         echo "Senha: " . $senha . "<br>";
-                        echo "Selecionado: " . $select . "<br>";
-                        echo "Comentário: " . $comentario . "<br>";
-                        echo "FDS: " . $fds . "<br>";
-                        echo "LGR: " . $lgr . "<br>";
+                        echo "Selecionado: " . $estado . "<br>";
+                        echo "Comentário: " . $COMENTARIO . "<br>";
+                        echo "LAFES: " . $LAFES . "<br>";
+                        echo "LGR: " . $LGR . "<br>";
+                        echo "LIS: " . $LIS . "<br>";
+                        echo "LQS: " . $LQS . "<br>";
+
                         echo "sim: " . $sim . "<br>";
                         echo "nao: " . $nao . "<br>";
                     }
